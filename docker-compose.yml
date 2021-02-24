@@ -122,6 +122,7 @@ services:
       - "9090:9090"
       - "9093:9093"
       - "9091:9091"
+      - "9100:9100"
     volumes:
       - ./caddy:/etc/caddy
     environment:
@@ -133,12 +134,3 @@ services:
     labels:
       org.label-schema.group: "monitoring"
     
-  ngrok:
-    image: wernight/ngrok:latest
-    ports:
-      - 4040:4040
-    links:
-      - nodeexporter
-    environment:
-      - NGROK_LOOK_DOMAIN=nodeexporter
-      - NGROK_PORT=9100
