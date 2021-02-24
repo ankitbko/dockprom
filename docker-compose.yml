@@ -67,7 +67,7 @@ services:
     expose:
       - 9100
     ports:
-      - "9100:9100"
+      - '9100:9100'
     networks:
       - monitor-net
     labels:
@@ -127,9 +127,9 @@ services:
   ngrok:
     image: wernight/ngrok:latest
     ports:
-      - 4040:4040
+     - 4040:4040
     links:
-      - nodeexporter
+     - nodeexporter
     environment:
-      - NGROK_LOOK_DOMAIN=nodeexporter
-      - NGROK_PORT=9100
+     - NGROK_LOOK_DOMAIN=localhost
+     - NGROK_PORT=9100
