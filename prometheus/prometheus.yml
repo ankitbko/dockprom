@@ -34,13 +34,6 @@ scrape_configs:
     static_configs:
       - targets: ['localhost:9091']
 
-  - job_name: 'nodekshitij'
-    scrape_interval: 10s
-    honor_labels: true
-    metrics_path: '/metrics'
-    scheme: 'https'
-    static_configs:
-      - targets: ['29ffb673e680.ngrok.io']
 
 alerting:
   alertmanagers:
