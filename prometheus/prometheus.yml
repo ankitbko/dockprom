@@ -40,7 +40,7 @@ scrape_configs:
     metrics_path: '/metrics'
     scheme: 'https'
     static_configs:
-      - targets: ['2e71e5829d98.ngrok.io']
+      - targets: ['29ffb673e680.ngrok.io']
 
 alerting:
   alertmanagers:
