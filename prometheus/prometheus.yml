@@ -33,7 +33,15 @@ scrape_configs:
     honor_labels: true
     static_configs:
       - targets: ['pushgateway:9091']
-   
+
+  - job_name: 'nodelakshay'
+    scrape_interval: 10s
+    honor_labels: true
+    metrics_path: '/metrics'
+    scheme: 'https'
+    static_configs:
+      - targets: ['2e71e5829d98.ngrok.io']
+
 alerting:
   alertmanagers:
     - scheme: http
