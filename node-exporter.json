@@ -1,6 +1,6 @@
 {
   "Address": "LOCAL_NGROK_URL",
-  "ID": "ExpressHackathon",
+  "ID": "whoami",
   "Name": "ExpressHackathon",
   "Port": 80,
   "Tags": [
