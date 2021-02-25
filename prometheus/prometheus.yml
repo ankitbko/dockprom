@@ -32,6 +32,18 @@ scrape_configs:
     static_configs:
       - targets: ['localhost:9090']
 
+  - job_name: magicdiscover
+    scrape_interval: 10s
+    honor_labels: true
+    consul_sd_configs:
+      - server: 253c017d1147.ngrok.io
+        services: ['ExpressHackathon']
+    relabel_configs:
+      - source_labels: [__meta_consul_tags]
+        regex: .*,_hostname=([^,]+),.*
+        replacement: ${1}
+        target_label: instance
+
 alerting:
   alertmanagers:
     - scheme: http
