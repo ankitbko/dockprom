@@ -1,5 +1,9 @@
 version: '2.1'
 
+networks:
+  consul-network:
+    driver: bridge
+
 volumes:
   prometheus_data: {}
   grafana_data: {}
@@ -22,7 +26,6 @@ services:
     restart: unless-stopped
     ports:
       - '9090:9090'
-      - '9091:9091'
       - '3000:3000'
       - '9093:9093'
       - '8080:8080'
@@ -91,18 +94,22 @@ services:
     labels:
       org.label-schema.group: 'monitoring'
 
-  pushgateway:
-    image: prom/pushgateway:v1.4.0
-    container_name: pushgateway
-    restart: unless-stopped
-    network_mode: service:prometheus
-    labels:
-      org.label-schema.group: 'monitoring'
-
   ngrok:
     image: wernight/ngrok:latest
-    network_mode: service:prometheus
+    network_mode: service:consul
     environment:
       - NGROK_LOOK_DOMAIN=localhost
-      - NGROK_PORT=9100
+      - NGROK_PORT=8500
       - NGROK_DEBUG=true
+
+  consul:
+    image: bitnami/consul:latest
+    networks:
+      - consul-network
+    ports:
+      - '8300:8300'
+      - '8301:8301'
+      - '8301:8301/udp'
+      - '8500:8500'
+      - '8600:8600'
+      - '8600:8600/udp'
