@@ -9,13 +9,13 @@ REMOTE_NGROK_URL=$1
 LOCAL_NGROK_URL=$(curl --silent --show-error http://127.0.0.1:4040/api/tunnels | sed -nE 's/.*public_url":"https:..([^"]*).*/\1/p')
 
 
-if [ $(uname -s) == 'Darwin' ]
+if [[ $(uname -s) == 'Darwin' ]]
 then
 sed -i '' "s/LOCAL_NGROK_URL/$LOCAL_NGROK_URL/g" new_node-exporter.json
 sed -i '' "s/whoami/$whoami/g" new_node-exporter.json
 fi
 
-if [ $(uname -s) == 'Linux' ]
+if [[ $(uname -s) == 'Linux' ]]
 then
 sed -i "s/LOCAL_NGROK_URL/$LOCAL_NGROK_URL/g" new_node-exporter.json
 sed -i "s/whoami/$whoami/g" new_node-exporter.json
