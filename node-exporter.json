@@ -1,0 +1,10 @@
+{
+  "Address": "LOCAL_NGROK_URL",
+  "ID": "ExpressHackathon",
+  "Name": "whoami",
+  "Port": 80,
+  "Tags": [
+   "_hostname=whoami",
+   "_team=JalDevCrew"
+  ]
+}
