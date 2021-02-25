@@ -17,10 +17,6 @@ scrape_configs:
     scrape_interval: 5s
     static_configs:
       - targets: ['localhost:9100']
-    metric_relabel_configs:
-      - source_labels: [instance]
-        target_label: instance
-        action: replace
 
   - job_name: 'cadvisor'
     scrape_interval: 5s
@@ -36,7 +32,7 @@ scrape_configs:
     scrape_interval: 10s
     honor_labels: true
     consul_sd_configs:
-      - server: 253c017d1147.ngrok.io
+      - server: bd6302bb7259.ngrok.io
         services: ['ExpressHackathon']
     relabel_configs:
       - source_labels: [__meta_consul_tags]
