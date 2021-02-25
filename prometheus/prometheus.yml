@@ -19,7 +19,7 @@ scrape_configs:
       - targets: ['localhost:9100']
     metric_relabel_configs:
       - source_labels: [instance]
-        target_label: _hostname
+        target_label: instance
         action: replace
 
   - job_name: 'cadvisor'
