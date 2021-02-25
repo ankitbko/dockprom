@@ -26,10 +26,9 @@ services:
     restart: unless-stopped
     ports:
       - '9090:9090' # Prometheus
-      - '3000:3000'  #Grafana
+      - '3000:3000' #Grafana
       - '9093:9093' # Alerts Manager
       - '8080:8080' # Cadvisor
-      - '4040:4040' #NGROK
 
     labels:
       org.label-schema.group: 'monitoring'
@@ -113,3 +112,4 @@ services:
       - '8500:8500'
       - '8600:8600'
       - '8600:8600/udp'
+      - '4040:4040'
